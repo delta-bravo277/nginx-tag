@@ -20,4 +20,4 @@ jobs:
         
         docker build -t "${{ secrets.DOCKERUSERNAME }}"/nginx-tag .
         echo "${{ secrets.DOCKERPASSWORD }}" | docker login -u "${{ secrets.DOCKERUSERNAME }}" --password-stdin
-        docker push "${{ secrets.DOCKERUSERNAME }}"/nginx-tag"
+        docker push "${{ secrets.DOCKERUSERNAME }}"/nginx-tag
