@@ -1,0 +1,23 @@
+name: Docker Image build and push 
+
+on:
+    workflow_dispatch
+#   push:
+#    branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+  
+  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build & Push Image
+      run: |
+        
+        docker build -t "${{ secrets.DOCKERUSERNAME }}"/nginx-tag .
+        echo "${{ secrets.DOCKERPASSWORD }}" | docker login -u "${{ secrets.DOCKERUSERNAME }}" --password-stdin
+        docker push "${{ secrets.DOCKERUSERNAME }}"/nginx-tag"
