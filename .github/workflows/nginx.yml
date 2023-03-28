@@ -3,7 +3,6 @@ name: Build , TAG and Push NGINX Image to ECR
 on:
   # workflow_dispatch: 
   push:
-   branches: [main]
    tags:
      - "*"
 
