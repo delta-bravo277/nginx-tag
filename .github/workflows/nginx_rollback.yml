@@ -51,6 +51,12 @@ jobs:
       run: |
         echo "image=$REGISTRY/$REPOSITORY:$PREV_TAG" >> $GITHUB_OUTPUT
         echo $GITHUB TOKEN
+
+    - name: Print
+      env:
+        image: ${{ steps.get-image.outputs.image }}
+      run: |
+          echo $image
       
     # - name: Updating Amazon ECS task definition
     #   id: task-def
