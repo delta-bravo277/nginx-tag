@@ -28,7 +28,7 @@ jobs:
     - name: Determine previous version number
       id: determine-prev-version
       run: |
-         PREV_TAG=$(git describe --abbrev=0 --tags HEAD^) >> $GITHUB_OUTPUT
+         PREV_TAG=$(git tag | tail -n 1) >> $GITHUB_OUTPUT
          echo $PREV_TAG
 
           
