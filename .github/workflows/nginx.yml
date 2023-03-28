@@ -22,12 +22,11 @@ jobs:
     - name: Determine version number
       id: determine-version
       run: |
-          LATEST_TAG=$(git describe --abbrev=0 --tags)
           INIT_TAG=$(git tag)
-          echo "$LATEST_TAG"
           if [[ "$INIT_TAG" == "" ]]; then
             NEW_TAG="1.0.0"
           else
+            LATEST_TAG=$(git describe --abbrev=0 --tags)
             SEMVER_REGEX="^v([0-9]+)\.([0-9]+)\.([0-9]+)$"
             if [[ "$LATEST_TAG" =~ $SEMVER_REGEX ]]; then
               MAJOR="${BASH_REMATCH[1]}"
