@@ -29,6 +29,7 @@ jobs:
       id: determine-prev-version
       run: |
          PREV_TAG=$(git describe --abbrev=0 --tags HEAD^) >> $GITHUB_OUTPUT
+         echo $PREV_TAG
 
           
     - name: Configure AWS credentials
