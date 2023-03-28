@@ -65,6 +65,7 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY:$NEW_TAG .
         docker push $REGISTRY/$REPOSITORY:$NEW_TAG
         echo "$REGISTRY/$REPOSITORY:$NEW_TAG"
+         echo "image=$REGISTRY/$REPOSITORY:$NEW_TAG" >> $GITHUB_OUTPUT
 
     - name: Updating Amazon ECS task definition
       id: task-def
