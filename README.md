@@ -13,6 +13,4 @@ git push origin -> we can run manual workflow on this
 
 ===============
 
-Create LB
-
 #patch
